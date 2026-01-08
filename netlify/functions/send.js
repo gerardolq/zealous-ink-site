@@ -1,5 +1,7 @@
 const nodemailer = require("nodemailer");
 
+console.log("EMAIL:", process.env.EMAIL);
+console.log("EMAIL_PASSWORD LENGTH:", process.env.EMAIL_PASSWORD?.length);
 
 exports.handler = async function (event) {
   try {
