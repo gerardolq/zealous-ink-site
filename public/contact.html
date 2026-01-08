@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav>
+  <h1>INK BY [ARTIST NAME]</h1>
+
+  <div class="nav-right">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <button class="theme-toggle" aria-label="Toggle theme">◐</button>
+
+</div>
+
+</nav>
+
+
+<main>
+  <h2 class="parallax-text fade-in" data-speed="0.08">Booking Inquiry</h2>
+
+  <form class="fade-in" action="/.netlify/functions/send" method="POST" novalidate>
+
+  <!-- Name -->
+  <input
+    type="text"
+    name="name"
+    placeholder="Full Name"
+    required
+  />
+
+  <!-- Email -->
+  <input
+    type="email"
+    name="email"
+    placeholder="Email Address"
+    required
+  />
+
+  <!-- Phone (optional unless selected) -->
+  <input
+    type="tel"
+    name="phone"
+    placeholder="Phone Number (optional)"
+  />
+
+  <!-- Tattoo Idea -->
+  <label>
+    Tattoo Idea
+    <textarea
+      name="idea"
+      rows="6"
+      placeholder="Describe your tattoo idea, style, references, and meaning."
+      required
+    ></textarea>
+  </label>
+
+  <!-- Size -->
+  <input
+    type="text"
+    name="size"
+    placeholder="Approximate Size (e.g. 4x6 inches)"
+    required
+  />
+
+  <!-- Placement -->
+  <input
+    type="text"
+    name="placement"
+    placeholder="Placement on body"
+    required
+  />
+
+  <!-- Budget (Optional) -->
+  <input
+    type="text"
+    name="budget"
+    placeholder="Estimated Budget (optional)"
+  />
+
+  <!-- Preferred Contact Method -->
+  <fieldset>
+    <legend>Preferred Contact Method</legend>
+
+    <label>
+      <input type="checkbox" name="contact_method" value="email">
+      Email
+    </label>
+
+    <label>
+      <input type="checkbox" name="contact_method" value="phone">
+      Phone
+    </label>
+  </fieldset>
+
+  <!-- Terms Agreement -->
+  <label class="terms">
+    <input type="checkbox" name="terms" required>
+    I agree to the terms and conditions and consent to being contacted
+    via my selected method(s).
+  </label>
+
+  <!-- Honeypot (spam protection – hidden from users) -->
+<input
+  type="text"
+  name="company"
+  tabindex="-1"
+  autocomplete="off"
+  class="honeypot"
+/>
+
+<button type="submit" disabled>
+  Send Inquiry
+</button>
+
+</form>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
