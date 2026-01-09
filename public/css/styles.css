@@ -12,6 +12,12 @@
   --accent-msg-box: #a04601;
   --msg-box-bg: #212121f2;
   --msg-box-shdw: #ffffff1a;
+
+    /* NAV SURFACE (DARK) */
+  --nav-bg: rgba(20, 20, 20, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.06);
+  --nav-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  --nav-blur: blur(12px);
 }
 
 [data-theme="light"] {
@@ -22,6 +28,12 @@
   --accent-msg-box: #eaa26b;
   --msg-box-bg: #fffffff2;
   --msg-box-shdw: #0000001a;
+
+    /* NAV SURFACE (LIGHT) */
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  --nav-blur: blur(10px);
 }
 
 /* =========================
@@ -520,15 +532,16 @@ textarea.error {
     flex-direction: column;
     gap: 1.25rem;
 
-    background: rgba(20, 20, 20, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--nav-bg);
+    backdrop-filter: var(--nav-blur);
+    -webkit-backdrop-filter: var(--nav-blur);
 
     padding: 1.75rem 1.5rem;
     width: 220px;
 
     border-radius: 16px;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--nav-border);
+    box-shadow: var(--nav-shadow);
 
     opacity: 0;
     transform: translateY(-10px) scale(0.98);
@@ -538,6 +551,7 @@ textarea.error {
       opacity 0.45s var(--ease-out-soft),
       transform 0.45s var(--ease-out-soft);
   }
+
 
   .nav-right ul.active {
     opacity: 1;
