@@ -87,7 +87,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  
 }
 
 .nav-right {
@@ -485,12 +484,14 @@ textarea.error {
   nav {
     position: relative;
     overflow: visible;
+    z-index: 10;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
     gap: 1rem;
+    z-index: 20;
   }
 
   .nav-right ul {
