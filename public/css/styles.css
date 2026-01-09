@@ -591,7 +591,11 @@ body::before {
   }
 
   nav a:focus,
-  nav a:active {
+  nav a:active,
+  .menu-btn:focus,
+  .menu-btn:active,
+  #theme-toggle:focus,
+  #theme-toggle:active {
     outline: none !important;
     box-shadow: none !important;
     background: none !important;
