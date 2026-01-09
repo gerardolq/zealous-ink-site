@@ -278,20 +278,27 @@ function showConfirmation(form) {
 // =========================
 // MOBILE DEV
 // =========================
-// Mobile hamburger toggle
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".menu-btn");
-  const navLinks = document.querySelector(".nav-links");
+  const nav = document.querySelector(".nav-right");
+  const navList = nav.querySelector("ul"); // select the <ul> inside nav
 
+  if (!menuBtn || !navList) {
+    console.error("Menu button or nav <ul> not found!");
+    return;
+  }
+
+  // Toggle the menu
   menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+    navList.classList.toggle("active");
   });
 
-  // Close menu if a link is clicked
-  navLinks.querySelectorAll("a").forEach(link => {
+  // Close menu when a link is clicked
+  navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
+      navList.classList.remove("active");
     });
   });
 });
+
 

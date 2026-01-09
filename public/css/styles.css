@@ -496,7 +496,7 @@ textarea.error {
   }
 
   /* Hide nav links by default */
-  .nav-links {
+  nav ul {
     display: none;
     flex-direction: column;
     gap: 1rem;
@@ -512,12 +512,12 @@ textarea.error {
   }
 
   /* Show nav links when active */
-  .nav-links.active {
+  nav ul.active {
     display: flex;
   }
 
   /* Adjust nav links text size */
-  .nav-links li a {
+  nav li a {
     font-size: 1rem;
   }
 
