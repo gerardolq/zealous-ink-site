@@ -474,6 +474,16 @@ textarea.error {
 /* =========================
    MOBILE
 ========================= */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 6rem;
+  }
+}
 
 /* Base responsive adjustments */
 html, body {
@@ -522,11 +532,7 @@ html, body {
 
 /* Headings adjust for smaller screens */
 h1 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  text-align: center; /* center on mobile for better look */
-  word-break: break-word; /* prevent overflow */
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
 }
 
 h2 {
@@ -578,48 +584,5 @@ img {
   .confirmation-message {
     padding: 1.5rem 1rem;
   }
-}
-
-/* =====================
-   MOBILE SCROLLBAR FIX
-   ===================== */
-/* =========================
-   FIX MOBILE BACKGROUND SCROLL
-========================= */
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* no horizontal scroll */
-  background: var(--bg);
-  position: relative; /* ensure pseudo-element aligns */
-}
-
-/* Ensure body lighting layer covers viewport without filling effect */
-body::before {
-  background-attachment: fixed;
-  position: absolute; /* changed from fixed to absolute */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-  pointer-events: none;
-  background: radial-gradient(
-    circle at top,
-    rgba(255, 255, 255, 0.06),
-    rgba(0, 0, 0, 0.6)
-  );
-  opacity: var(--lighting-opacity, 0.6);
-  z-index: 1;
-}
-
-/* Ensure page wrapper covers full height */
-.page-wrapper {
-  min-height: 100vh;
-  width: 100%;
-  box-sizing: border-box;
-  background: inherit; /* same as body */
 }
 
