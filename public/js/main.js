@@ -234,14 +234,3 @@ if (menuBtn && navList) {
 } else {
   console.error("Mobile nav JS not initialized");
 }
-
-// Remove persistent highlight on mobile Safari
-document.querySelectorAll('nav a, .menu-btn, #theme-toggle').forEach(el => {
-  const removeFocus = (e) => {
-    e.preventDefault();
-    setTimeout(() => el.blur(), 50);
-  };
-
-  el.addEventListener('click', removeFocus);
-  el.addEventListener('touchend', removeFocus);
-});
