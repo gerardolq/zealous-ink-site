@@ -27,7 +27,6 @@ document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 document.querySelectorAll("a").forEach(link => {
   if (link.hostname === window.location.hostname) {
     link.addEventListener("click", e => {
-      el.blur();
       e.preventDefault();
       const href = link.href;
 
@@ -53,8 +52,7 @@ if (savedTheme) {
 toggleBtn?.addEventListener("click", () => {
   const currentTheme = document.documentElement.getAttribute("data-theme");
   const newTheme = currentTheme === "light" ? "dark" : "light";
-  
-  el.blur();
+
   document.documentElement.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
 });
@@ -220,16 +218,24 @@ const navList = navRight ? navRight.querySelector("ul") : null;
 if (menuBtn && navList) {
   menuBtn.addEventListener("click", () => {
     navList.classList.toggle("active");
-    el.blur();
   });
 
   navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navList.classList.remove("active");
-      el.blur();
     });
   });
 } else {
   console.error("Mobile nav JS not initialized");
 }
+
+// Remove persistent highlight on nav buttons and links for mobile Safari
+document.querySelectorAll('nav a, .menu-btn, #theme-toggle').forEach(el => {
+  el.addEventListener('click', () => {
+    // Delay is important to allow the tap feedback to show briefly
+    setTimeout(() => {
+      el.blur(); // remove focus immediately after tap
+    }, 100);
+  });
+});
 

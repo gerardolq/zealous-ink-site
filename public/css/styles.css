@@ -584,6 +584,9 @@ textarea.error {
     transition: color 0.25s ease;
   }
 
+  .nav-right ul li a:active {
+    color: var(--accent); /* subtle temporary highlight */
+  }
 
   #theme-toggle {
     font-size: 0.85rem;
