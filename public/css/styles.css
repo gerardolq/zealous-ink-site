@@ -475,7 +475,7 @@ textarea.error {
    MOBILE
 ========================= */
 @media (max-width: 768px) {
-  nav ul {
+  .nav-right ul {
     display: none;
   }
 
@@ -496,7 +496,7 @@ textarea.error {
   }
 
   /* Hide nav links by default */
-  nav ul {
+  .nav-right ul {
     display: none;
     flex-direction: column;
     gap: 1rem;
@@ -508,11 +508,11 @@ textarea.error {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     width: 200px;
-    z-index: 100;
+    z-index: 1000;
   }
 
   /* Show nav links when active */
-  nav ul.active {
+  .nav-right ul.active {
     display: flex;
   }
 
@@ -580,7 +580,7 @@ img {
     display: none;
   }
 
-  .nav-links {
+  .nav-right {
     display: flex !important;
     flex-direction: row;
     gap: 2rem;

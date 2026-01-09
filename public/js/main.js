@@ -300,5 +300,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-
