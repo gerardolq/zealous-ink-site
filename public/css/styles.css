@@ -360,14 +360,105 @@ textarea.error {
 /* =========================
    CONFIRMATION MESSAGE
 ========================= */
+/* CONFIRMATION PAGE */
+.confirmation-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background: #f8f6f2;
+  min-height: calc(100vh - 120px); /* adjust for header/footer */
+}
+
 .confirmation-message {
   max-width: 700px;
-  margin: 4rem auto;
-  padding: 2rem;
   background: rgba(255,255,255,0.95);
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 3rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: left;
+  font-family: "Georgia", serif;
 }
+
+.confirmation-message h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.confirmation-message h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.confirmation-message p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.confirmation-message ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.back-link {
+  margin-top: 2rem;
+  font-weight: 500;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #111;
+  border-bottom: 1px solid #111;
+}
+
+.back-link a:hover {
+  color: #555;
+  border-color: #555;
+}
+
+/* NAV BAR */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-bar .nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-bar .nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.nav-bar .nav-links a:hover {
+  color: #555;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111;
+}
+
 
 .confirmation-message ul {
   list-style-type: disc;
