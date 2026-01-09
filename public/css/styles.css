@@ -483,83 +483,7 @@ textarea.error {
     min-height: auto;
     padding-top: 6rem;
   }
-}
 
-/* Base responsive adjustments */
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* Responsive containers */
-.page-wrapper,
-.content-wrapper,
-.confirmation-message,
-.form-container,
-.portfolio-wrapper {
-  width: 100%;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Navigation for mobile */
-.nav-right {
-  flex-wrap: wrap;
-  padding: 1rem 2rem;
-}
-
-.nav-links {
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-  display: none; /* hidden by default on mobile */
-}
-
-.nav-links.active {
-  display: flex;
-}
-
-.nav-links li a {
-  font-size: 1.1rem;
-}
-
-/* Headings adjust for smaller screens */
-h1 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-}
-
-h2 {
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
-}
-
-/* Buttons and inputs full width on mobile */
-input,
-textarea,
-button {
-  width: 100%;
-  font-size: 1rem;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-}
-
-/* Images scale automatically */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Media query for tablet and mobile */
-/* =========================
-   HAMBURGER MENU - MOBILE ONLY
-========================= */
-@media (max-width: 768px) {
   /* Show hamburger button on mobile */
   .menu-btn {
     display: block;
@@ -607,6 +531,48 @@ img {
     padding: 0.2rem 0.5rem;
   }
 }
+
+/* Base responsive adjustments */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Responsive containers */
+.page-wrapper,
+.content-wrapper,
+.confirmation-message,
+.form-container,
+.portfolio-wrapper {
+  width: 100%;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Buttons and inputs full width on mobile */
+input,
+textarea,
+button {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Images scale automatically */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* Larger screens keep normal inline nav */
 @media (min-width: 769px) {
