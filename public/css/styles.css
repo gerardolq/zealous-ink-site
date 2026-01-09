@@ -537,13 +537,8 @@ body::before {
     font-size: 1.6rem;
     background: none;
     border: none;
-    color: var(--text);
     cursor: pointer;
     transition: opacity 0.3s ease;
-  }
-
-  .menu-btn:hover {
-    opacity: 1;
   }
 
   /* DROPDOWN MENU */
