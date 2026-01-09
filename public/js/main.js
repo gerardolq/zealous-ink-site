@@ -279,17 +279,12 @@ function showConfirmation(form) {
 // MOBILE DEV
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector(".nav-right"); // MUST match class in HTML
-  if (!nav) {
-    console.error("Nav bar not found!");
-    return;
-  }
+  const nav = document.querySelector("nav");
+  const menuBtn = document.querySelector(".menu-btn");
+  const navList = nav ? nav.querySelector("ul") : null;
 
-  const menuBtn = nav.querySelector(".menu-btn");
-  const navList = nav.querySelector("ul");
-
-  if (!menuBtn || !navList) {
-    console.error("Menu button or nav list not found!");
+  if (!nav || !menuBtn || !navList) {
+    console.error("Mobile nav elements missing");
     return;
   }
 
@@ -297,9 +292,11 @@ document.addEventListener("DOMContentLoaded", () => {
     navList.classList.toggle("active");
   });
 
+  // Close menu after clicking a link
   navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navList.classList.remove("active");
     });
   });
 });
+
