@@ -229,13 +229,12 @@ if (menuBtn && navList) {
   console.error("Mobile nav JS not initialized");
 }
 
-// Remove persistent highlight on nav buttons and links for mobile Safari
+// Remove persistent highlight on mobile Safari for nav buttons & links
 document.querySelectorAll('nav a, .menu-btn, #theme-toggle').forEach(el => {
-  el.addEventListener('click', () => {
-    // Delay is important to allow the tap feedback to show briefly
-    setTimeout(() => {
-      el.blur(); // remove focus immediately after tap
-    }, 100);
-  });
-});
+  const removeFocus = () => {
+    setTimeout(() => el.blur(), 50); // slight delay to allow tap effect
+  };
 
+  el.addEventListener('click', removeFocus);
+  el.addEventListener('touchend', removeFocus); // mobile Safari
+});

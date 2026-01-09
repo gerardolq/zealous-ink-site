@@ -577,23 +577,29 @@ body::before {
       transform 0.45s var(--ease-out-soft);
   }
 
+  /* Disable lingering focus/active states */
   nav a,
   .menu-btn,
   #theme-toggle {
-  outline: none;
-  -webkit-tap-highlight-color: transparent; /* iOS / Safari */
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   nav a:active,
+  .menu-btn:active {
+    color: var(--accent);
+  }
+
   nav a:focus,
-  .menu-btn:active,
+  nav a:active,
   .menu-btn:focus,
-  #theme-toggle:active,
-  #theme-toggle:focus {
-    outline: none;
-    box-shadow: none;
-    background: transparent;
-    color: inherit;
+  .menu-btn:active,
+  #theme-toggle:focus,
+  #theme-toggle:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    color: inherit !important;
   }
 
   .nav-right ul.active {
