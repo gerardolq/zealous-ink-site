@@ -258,8 +258,16 @@ if (form) {
     });
 
     if (response.ok) {
-      showConfirmation(form);
+      // After sending email
+      return {
+        statusCode: 302,
+        headers: {
+          Location: data.get("redirect") || "/contact-confirmation.html"
+        },
+        body: ""
+      };
     }
+    
   });
 }
 
