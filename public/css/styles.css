@@ -537,6 +537,7 @@ body::before {
     font-size: 1.6rem;
     background: none;
     border: none;
+    color: var(--text);
     cursor: pointer;
     transition: opacity 0.3s ease;
   }
@@ -591,7 +592,7 @@ body::before {
   #theme-toggle:active {
     outline: none !important;
     box-shadow: none !important;
-    background: transparent !important;
+    background: none !important;
   }
 
   .nav-right ul.active {
