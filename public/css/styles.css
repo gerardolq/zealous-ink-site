@@ -583,11 +583,10 @@ body::before {
   #theme-toggle {
     outline: none !important;
     -webkit-tap-highlight-color: transparent !important;
-  }
-
-  nav a:active,
-  .menu-btn:active {
-    color: var(--accent);
+    -webkit-user-select: none; /* prevent iOS highlight */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   nav a:focus,

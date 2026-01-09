@@ -231,10 +231,12 @@ if (menuBtn && navList) {
 
 // Remove persistent highlight on mobile Safari for nav buttons & links
 document.querySelectorAll('nav a, .menu-btn, #theme-toggle').forEach(el => {
-  const removeFocus = () => {
-    setTimeout(() => el.blur(), 50); // slight delay to allow tap effect
+  const removeFocus = (e) => {
+    // prevent default highlight in Safari
+    e.preventDefault(); 
+    setTimeout(() => el.blur(), 50); // short delay to allow tap animation
   };
 
   el.addEventListener('click', removeFocus);
-  el.addEventListener('touchend', removeFocus); // mobile Safari
+  el.addEventListener('touchend', removeFocus);
 });
