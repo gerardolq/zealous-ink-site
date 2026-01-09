@@ -217,23 +217,31 @@ const navList = navRight ? navRight.querySelector("ul") : null;
 
 if (menuBtn && navList) {
   menuBtn.addEventListener("click", () => {
+    // Toggle menu visibility
     navList.classList.toggle("active");
+
+    // Toggle button active state
+    menuBtn.classList.toggle("active");
   });
 
+  // Close menu when clicking a link
   navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navList.classList.remove("active");
+      menuBtn.classList.remove("active"); // reset button state
     });
   });
 } else {
   console.error("Mobile nav JS not initialized");
 }
 
-// Remove persistent highlight on mobile Safari for nav buttons & links
+// Remove persistent highlight on mobile Safari
 document.querySelectorAll('nav a, .menu-btn, #theme-toggle').forEach(el => {
   const removeFocus = (e) => {
-    // prevent default highlight in Safari
-    e.preventDefault(); 
-    setTimeout(() => el.blur(), 50); // short delay to allow tap animation
+    e.preventDefault();
+    setTimeout(() => el.blur(), 50);
   };
+
+  el.addEventListener('click', removeFocus);
+  el.addEventListener('touchend', removeFocus);
 });

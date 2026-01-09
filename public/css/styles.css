@@ -532,14 +532,20 @@ body::before {
   }
 
   /* HAMBURGER */
+  /* Hamburger button default */
   .menu-btn {
-    display: block;
     font-size: 1.6rem;
     background: none;
     border: none;
     color: var(--text);
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  /* When active (menu open) */
+  .menu-btn.active {
+    transform: rotate(90deg); /* simple rotate for demonstration */
+    color: var(--accent);
   }
 
   /* DROPDOWN MENU */
@@ -585,11 +591,7 @@ body::before {
   }
 
   nav a:focus,
-  nav a:active,
-  .menu-btn:focus,
-  .menu-btn:active,
-  #theme-toggle:focus,
-  #theme-toggle:active {
+  nav a:active {
     outline: none !important;
     box-shadow: none !important;
     background: none !important;
