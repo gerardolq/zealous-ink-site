@@ -552,6 +552,24 @@ textarea.error {
       transform 0.45s var(--ease-out-soft);
   }
 
+  nav a,
+  .menu-btn,
+  #theme-toggle {
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* iOS / Safari */
+  }
+
+  nav a:active,
+  nav a:focus,
+  .menu-btn:active,
+  .menu-btn:focus,
+  #theme-toggle:active,
+  #theme-toggle:focus {
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    color: inherit;
+  }
 
   .nav-right ul.active {
     opacity: 1;
@@ -563,7 +581,9 @@ textarea.error {
   .nav-right ul li a {
     font-size: 0.95rem;
     letter-spacing: 0.5px;
+    transition: color 0.25s ease;
   }
+
 
   #theme-toggle {
     font-size: 0.85rem;
