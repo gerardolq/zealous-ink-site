@@ -217,7 +217,6 @@ const navList = navRight ? navRight.querySelector("ul") : null;
 
 if (menuBtn && navList) {
   menuBtn.addEventListener("click", () => {
-    alert("Menu clicked");
     navList.classList.toggle("active");
   });
 
