@@ -555,24 +555,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  h1 {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--page-bg, #f8f6f2); /* matches page background */
-    z-index: 99;
-    padding: 0.8rem 1rem;
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* subtle separation */
-  }
-
-  /* Add spacing so content below doesn't overlap */
-  .page-wrapper {
-    padding-top: 3.5rem; /* adjust based on tattoo title height */
-  }
+  
   .page-wrapper {
     padding: 2rem 1rem;
   }
