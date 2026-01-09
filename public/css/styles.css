@@ -87,11 +87,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
   gap: 2rem;
 }
 
