@@ -279,21 +279,24 @@ function showConfirmation(form) {
 // MOBILE DEV
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.querySelector(".menu-btn");
-  const nav = document.querySelector(".nav-right");
-  const navList = nav.querySelector("ul"); // select the <ul> inside nav
-
-  if (!menuBtn || !navList) {
-    console.error("Menu button or nav <ul> not found!");
+  const nav = document.querySelector(".nav-right"); // MUST match class in HTML
+  if (!nav) {
+    console.error("Nav bar not found!");
     return;
   }
 
-  // Toggle the menu
+  const menuBtn = nav.querySelector(".menu-btn");
+  const navList = nav.querySelector("ul");
+
+  if (!menuBtn || !navList) {
+    console.error("Menu button or nav list not found!");
+    return;
+  }
+
   menuBtn.addEventListener("click", () => {
     navList.classList.toggle("active");
   });
 
-  // Close menu when a link is clicked
   navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navList.classList.remove("active");
