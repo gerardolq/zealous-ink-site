@@ -91,6 +91,7 @@ nav {
 }
 
 .nav-right {
+  overflow: visible;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -483,6 +484,7 @@ textarea.error {
 
   nav {
     position: relative;
+    overflow: visible;
   }
 
   .nav-right {
@@ -492,6 +494,7 @@ textarea.error {
   }
 
   .nav-right ul {
+    overflow: visible;
     display: none;
     position: absolute;
     top: 100%;
@@ -507,6 +510,7 @@ textarea.error {
   }
 
   .nav-right ul.active {
+    outline: 2px solid red;
     display: flex;
   }
 
