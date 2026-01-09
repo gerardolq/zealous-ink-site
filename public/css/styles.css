@@ -510,7 +510,7 @@ html, body {
 }
 
 /* Navigation for mobile */
-.nav-bar {
+.nav-right {
   flex-wrap: wrap;
   padding: 1rem 2rem;
 }
