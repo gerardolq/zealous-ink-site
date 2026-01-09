@@ -82,6 +82,12 @@ body.loaded {
 /* =========================
    NAVIGATION
 ========================= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
 
 .nav-right {
   display: flex;
@@ -103,26 +109,26 @@ body.loaded {
   opacity: 1;
 }
 
-.nav-right h1 {
+nav h1 {
   font-family: "Playfair Display", serif;
   font-size: 1.3rem;
   letter-spacing: 1px;
 }
 
-.nav-right ul {
+nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
 
-.nav-right a {
+nav a {
   color: var(--text);
   text-decoration: none;
   font-size: 0.9rem;
   position: relative;
 }
 
-.nav-right a::after {
+nav a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -133,7 +139,7 @@ body.loaded {
   transition: width 0.4s var(--ease-out-soft);
 }
 
-.nav-right a:hover::after {
+nav a:hover::after {
   width: 100%;
 }
 
@@ -469,7 +475,7 @@ textarea.error {
    MOBILE
 ========================= */
 @media (max-width: 768px) {
-  .nav-right ul {
+  nav ul {
     display: none;
   }
 
@@ -490,7 +496,7 @@ textarea.error {
   }
 
   /* Hide nav links by default */
-  .nav-right ul {
+  nav ul {
     display: none;
     flex-direction: column;
     gap: 1rem;
@@ -502,16 +508,16 @@ textarea.error {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     width: 200px;
-    z-index: 1000;
+    z-index: 100;
   }
 
   /* Show nav links when active */
-  .nav-right ul.active {
+  nav ul.active {
     display: flex;
   }
 
   /* Adjust nav links text size */
-  .nav-right li a {
+  nav li a {
     font-size: 1rem;
   }
 
@@ -574,7 +580,7 @@ img {
     display: none;
   }
 
-  .nav-right {
+  nav ul {
     display: flex !important;
     flex-direction: row;
     gap: 2rem;
