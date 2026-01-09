@@ -278,24 +278,22 @@ function showConfirmation(form) {
 // =========================
 // MOBILE DEV
 // =========================
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.querySelector(".menu-btn");
-  const navRight = document.querySelector(".nav-right");
-  const navList = navRight ? navRight.querySelector("ul") : null;
+const menuBtn = document.querySelector(".menu-btn");
+const navRight = document.querySelector(".nav-right");
+const navList = navRight ? navRight.querySelector("ul") : null;
 
-  if (!menuBtn || !navList) {
-    console.error("Mobile nav elements not found");
-    return;
-  }
-
+if (menuBtn && navList) {
   menuBtn.addEventListener("click", () => {
+    alert("Menu clicked");
     navList.classList.toggle("active");
   });
 
-  // Close menu when clicking a link
   navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navList.classList.remove("active");
     });
   });
-});
+} else {
+  console.error("Mobile nav JS not initialized");
+}
+
