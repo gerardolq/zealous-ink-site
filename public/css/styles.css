@@ -539,7 +539,6 @@ body::before {
     border: none;
     color: var(--text);
     cursor: pointer;
-    opacity: 0.85;
     transition: opacity 0.3s ease;
   }
 
@@ -598,7 +597,6 @@ body::before {
     outline: none !important;
     box-shadow: none !important;
     background: transparent !important;
-    color: inherit !important;
   }
 
   .nav-right ul.active {
@@ -612,10 +610,6 @@ body::before {
     font-size: 0.95rem;
     letter-spacing: 0.5px;
     transition: color 0.25s ease;
-  }
-
-  .nav-right ul li a:active {
-    color: var(--accent); /* subtle temporary highlight */
   }
 
   #theme-toggle {
