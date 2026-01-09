@@ -2,19 +2,29 @@ const nodemailer = require("nodemailer");
 
 exports.handler = async function (event) {
   try {
+    // ------------------------
+    // Parse Form Data
+    // ------------------------
     const data = new URLSearchParams(event.body);
 
-    // Honeypot spam protection
+    // ------------------------
+    // Spam Protection: Honeypot
+    // ------------------------
     if (data.get("company")) {
       return { statusCode: 200, body: "OK" };
     }
 
+    // ------------------------
+    // Environment Toggle for Test Emails
+    // ------------------------
     const isTestEmail = process.env.SEND_TEST_BOOKING === "true";
 
-    // Extract form fields
+    // ------------------------
+    // Extract Fields
+    // ------------------------
     const name = isTestEmail ? "TEST: Deployment Submission" : data.get("name");
     const email = isTestEmail ? process.env.EMAIL : data.get("email");
-    const textNumber = data.get("phone") || "Not provided";
+    const phone = data.get("phone") || "Not provided";
     const idea = isTestEmail
       ? "This is a test submission for deployment verification."
       : data.get("idea");
@@ -23,7 +33,9 @@ exports.handler = async function (event) {
     const budget = data.get("budget") || "Not specified";
     const contactMethods = data.getAll("contact_method").join(", ") || "N/A";
 
-    // Configure Nodemailer
+    // ------------------------
+    // Nodemailer Transporter
+    // ------------------------
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -32,7 +44,9 @@ exports.handler = async function (event) {
       }
     });
 
-    // Build HTML email
+    // ------------------------
+    // HTML Email
+    // ------------------------
     const htmlEmail = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px;">
         <h2 style="color: ${isTestEmail ? "red" : "#000"};">
@@ -41,7 +55,7 @@ exports.handler = async function (event) {
 
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Text:</strong> ${textNumber}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Preferred Contact:</strong> ${contactMethods}</p>
 
         <hr />
@@ -55,7 +69,9 @@ exports.handler = async function (event) {
       </div>
     `;
 
-    // Send email
+    // ------------------------
+    // Send Email
+    // ------------------------
     await transporter.sendMail({
       from: `"Tattoo Booking" <${process.env.EMAIL}>`,
       to: process.env.EMAIL,
@@ -66,7 +82,14 @@ exports.handler = async function (event) {
       html: htmlEmail
     });
 
-    return { statusCode: 200, body: "Message sent" };
+    // Redirect user to confirmation page
+    return {
+    statusCode: 302,
+    headers: {
+        Location: data.get("redirect") || "/contact-confirmation.html"
+    },
+    body: ""
+    };
   } catch (error) {
     console.error(error);
     return { statusCode: 500, body: "Error sending message" };
