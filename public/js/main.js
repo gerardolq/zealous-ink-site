@@ -45,6 +45,26 @@ document.querySelectorAll("a").forEach(link => {
 const toggleBtn = document.querySelector(".theme-toggle");
 const savedTheme = localStorage.getItem("theme");
 
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+
+  // Optional: save preference
+  if(document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// On page load: apply saved theme
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if(savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+  }
+});
+
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
 }
@@ -274,3 +294,5 @@ function showConfirmation(form) {
     </div>
   `;
 }
+
+
