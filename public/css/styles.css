@@ -522,7 +522,7 @@ html, body {
 
 /* Headings adjust for smaller screens */
 h1 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-size: clamp(1.6rem, 7vw, 2.2rem);
   line-height: 1.2;
   margin-bottom: 1rem;
   text-align: center; /* center on mobile for better look */
@@ -584,19 +584,35 @@ img {
    MOBILE SCROLLBAR FIX
    ===================== */
 html, body {
-  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--page-bg, #f8f6f2);
+  background-attachment: fixed; /* optional, keeps background solid */
 }
 
-body {
-  min-width: 100vw; /* Ensure content never exceeds viewport width */
+.page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: inherit;
 }
 
-.page-wrapper,
 .content-wrapper,
 .confirmation-message,
 .form-container,
 .portfolio-wrapper {
   max-width: 100%;
-  box-sizing: border-box; /* Avoid accidental overflow */
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
