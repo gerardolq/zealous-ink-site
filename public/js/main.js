@@ -279,12 +279,12 @@ function showConfirmation(form) {
 // MOBILE DEV
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector("nav");
   const menuBtn = document.querySelector(".menu-btn");
-  const navList = nav ? nav.querySelector("ul") : null;
+  const navRight = document.querySelector(".nav-right");
+  const navList = navRight ? navRight.querySelector("ul") : null;
 
-  if (!nav || !menuBtn || !navList) {
-    console.error("Mobile nav elements missing");
+  if (!menuBtn || !navList) {
+    console.error("Mobile nav elements not found");
     return;
   }
 
@@ -292,11 +292,10 @@ document.addEventListener("DOMContentLoaded", () => {
     navList.classList.toggle("active");
   });
 
-  // Close menu after clicking a link
+  // Close menu when clicking a link
   navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navList.classList.remove("active");
     });
   });
 });
-

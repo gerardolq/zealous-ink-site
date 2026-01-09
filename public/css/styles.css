@@ -87,6 +87,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
+  
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -470,55 +476,47 @@ textarea.error {
    MOBILE
 ========================= */
 @media (max-width: 768px) {
-  nav ul {
-    display: none;
-  }
-
   .hero {
     min-height: auto;
     padding-top: 6rem;
   }
 
-  /* Show hamburger button on mobile */
+  nav {
+    position: relative;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-right ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--bg);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    width: 220px;
+    z-index: 999;
+  }
+
+  .nav-right ul.active {
+    display: flex;
+  }
+
   .menu-btn {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     background: none;
     border: none;
     color: var(--text);
     cursor: pointer;
-    z-index: 101;
-  }
-
-  /* Hide nav links by default */
-  nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    position: absolute;
-    top: 100%; /* dropdown below nav */
-    right: 1rem;
-    background: var(--bg);
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    width: 200px;
-    z-index: 100;
-  }
-
-  /* Show nav links when active */
-  nav ul.active {
-    display: flex;
-  }
-
-  /* Adjust nav links text size */
-  nav li a {
-    font-size: 1rem;
-  }
-
-  /* Adjust logo and theme toggle */
-  .logo a {
-    font-size: 1rem;
   }
 
   #theme-toggle {
