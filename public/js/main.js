@@ -236,7 +236,4 @@ document.querySelectorAll('nav a, .menu-btn, #theme-toggle').forEach(el => {
     e.preventDefault(); 
     setTimeout(() => el.blur(), 50); // short delay to allow tap animation
   };
-
-  el.addEventListener('click', removeFocus);
-  el.addEventListener('touchend', removeFocus);
 });
