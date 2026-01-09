@@ -583,35 +583,43 @@ img {
 /* =====================
    MOBILE SCROLLBAR FIX
    ===================== */
+/* =========================
+   FIX MOBILE BACKGROUND SCROLL
+========================= */
 html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  background-color: var(--page-bg, #f8f6f2);
-  background-attachment: fixed; /* optional, keeps background solid */
+  overflow-x: hidden; /* no horizontal scroll */
+  background: var(--bg);
+  position: relative; /* ensure pseudo-element aligns */
 }
 
+/* Ensure body lighting layer covers viewport without filling effect */
+body::before {
+  background-attachment: fixed;
+  position: absolute; /* changed from fixed to absolute */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.06),
+    rgba(0, 0, 0, 0.6)
+  );
+  opacity: var(--lighting-opacity, 0.6);
+  z-index: 1;
+}
+
+/* Ensure page wrapper covers full height */
 .page-wrapper {
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  background: inherit;
+  background: inherit; /* same as body */
 }
 
-.content-wrapper,
-.confirmation-message,
-.form-container,
-.portfolio-wrapper {
-  max-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
