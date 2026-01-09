@@ -476,6 +476,22 @@ textarea.error {
    MOBILE
 ========================= */
 @media (max-width: 768px) {
+
+  body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.06),
+    rgba(0, 0, 0, 0.6)
+  );
+  opacity: var(--lighting-opacity, 0.6);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index:-1;
+}
+
   .hero {
     min-height: auto;
     padding-top: 6rem;
