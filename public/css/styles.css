@@ -545,7 +545,7 @@ body::before {
   /* When active (menu open) */
   .menu-btn.active {
     transform: rotate(90deg); /* simple rotate for demonstration */
-    color: var(--accent);
+    color: none;
   }
 
   /* DROPDOWN MENU */
