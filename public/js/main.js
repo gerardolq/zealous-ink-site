@@ -222,8 +222,7 @@ if (!menuBtn || !navList || !navRight) {
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation(); // prevent outside click from firing
     if (
-      navList.classList.contains("active") &&
-      !navRight.contains(e.target)
+      navList.classList.contains("active")
     ) {
       navList.classList.remove("active");
       menuBtn.classList.remove("active");
