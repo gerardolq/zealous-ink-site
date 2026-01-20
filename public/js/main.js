@@ -226,8 +226,6 @@ if (!menuBtn || !navList || !navRight) {
 
     navList.classList.toggle("active", !isOpen);
     menuBtn.classList.toggle("active", !isOpen);
-    navList.classList.remove("active");
-    menuBtn.classList.remove("active");
   });
 
   // Close menu when clicking a link
