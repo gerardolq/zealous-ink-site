@@ -221,14 +221,13 @@ if (!menuBtn || !navList || !navRight) {
   // Toggle menu
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation(); // prevent outside click from firing
+    const isOpen = navList.classList.contains("active");
     if (
       navList.classList.contains("active")
     ) {
       navList.classList.remove("active");
       menuBtn.classList.remove("active");
     } else {
-    const isOpen = navList.classList.contains("active");
-
     navList.classList.toggle("active", !isOpen);
     menuBtn.classList.toggle("active", !isOpen);
     }
