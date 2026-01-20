@@ -215,22 +215,35 @@ const menuBtn = document.querySelector(".menu-btn");
 const navRight = document.querySelector(".nav-right");
 const navList = navRight ? navRight.querySelector("ul") : null;
 
-if (menuBtn && navList) {
-  menuBtn.addEventListener("click", () => {
-    // Toggle menu visibility
-    navList.classList.toggle("active");
+if (!menuBtn || !navList || !navRight) {
+  console.error("Mobile nav JS not initialized");
+} else {
+  // Toggle menu
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent outside click from firing
 
-    // Toggle button active state
-    menuBtn.classList.toggle("active");
+    const isOpen = navList.classList.contains("active");
+
+    navList.classList.toggle("active", !isOpen);
+    menuBtn.classList.toggle("active", !isOpen);
   });
 
   // Close menu when clicking a link
   navList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navList.classList.remove("active");
-      menuBtn.classList.remove("active"); // reset button state
+      menuBtn.classList.remove("active");
     });
   });
-} else {
-  console.error("Mobile nav JS not initialized");
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      navList.classList.contains("active") &&
+      !navRight.contains(e.target)
+    ) {
+      navList.classList.remove("active");
+      menuBtn.classList.remove("active");
+    }
+  });
 }
