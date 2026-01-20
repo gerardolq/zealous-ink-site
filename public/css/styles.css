@@ -546,7 +546,6 @@ body::before {
   .menu-btn.active {
     transform: rotate(90deg); /* simple rotate for demonstration */
     color: var(--accent);
-    background-color: none;
   }
 
   /* DROPDOWN MENU */
@@ -579,27 +578,9 @@ body::before {
       transform 0.45s var(--ease-out-soft);
   }
 
-  /* Disable lingering focus/active states */
-  nav a,
-  .menu-btn,
-  #theme-toggle {
-    outline: none !important;
-    -webkit-tap-highlight-color: transparent !important;
-    -webkit-user-select: none; /* prevent iOS highlight */
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  nav a:focus,
-  nav a:active,
-  .menu-btn:focus,
-  .menu-btn:active,
-  #theme-toggle:focus,
-  #theme-toggle:active {
-    outline: none !important;
-    box-shadow: none !important;
-    background: none !important;
+  button:hover {
+    background-color: none;
+    color: var(--text);
   }
 
   .nav-right ul.active {
