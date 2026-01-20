@@ -220,15 +220,8 @@ if (!menuBtn || !navList || !navRight) {
 } else {
   // Toggle menu
   menuBtn.addEventListener("click", (e) => {
-    if (
-      navList.classList.contains("active")
-    ) {
-      navList.classList.remove("active");
-      menuBtn.classList.remove("active");
-    } else {
     navList.classList.toggle("active");
     menuBtn.classList.toggle("active");
-    }
   });
 
   // Close menu when clicking a link
