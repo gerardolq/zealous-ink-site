@@ -579,7 +579,7 @@ body::before {
   }
 
   button:hover {
-    background-color: none;
+    background: none;
     color: var(--text);
   }
 
