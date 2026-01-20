@@ -219,14 +219,16 @@ if (!menuBtn || !navList || !navRight) {
   console.error("Mobile nav JS not initialized");
 } else {
   // Toggle menu
-  menuBtn.addEventListener("pointerdown", (e) => {
-    e.preventDefault();
-    e.stopPropagation(); // prevent outside click from firing
-
-    const isOpen = navList.classList.contains("active");
-
-    navList.classList.toggle("active", !isOpen);
-    menuBtn.classList.toggle("active", !isOpen);
+  menuBtn.addEventListener("click", (e) => {
+    if (
+      navList.classList.contains("active")
+    ) {
+      navList.classList.remove("active");
+      menuBtn.classList.remove("active");
+    } else {
+    navList.classList.toggle("active");
+    menuBtn.classList.toggle("active");
+    }
   });
 
   // Close menu when clicking a link
