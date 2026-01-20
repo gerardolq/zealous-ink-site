@@ -1,0 +1,641 @@
+/* =========================
+   DESIGN TOKENS
+========================= */
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+  --bg: #1a1a1a;
+  --text: #f6f4f1;
+  --muted: #a0a0a0;
+  --accent: #e66161;
+  --accent-msg-box: #a04601;
+  --msg-box-bg: #212121f2;
+  --msg-box-shdw: #ffffff1a;
+
+    /* NAV SURFACE (DARK) */
+  --nav-bg: rgba(20, 20, 20, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.06);
+  --nav-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  --nav-blur: blur(12px);
+}
+
+[data-theme="light"] {
+  --bg: #f6f4f1;
+  --text: #1a1a1a;
+  --muted: #555;
+  --accent: #8b5e3c;
+  --accent-msg-box: #eaa26b;
+  --msg-box-bg: #fffffff2;
+  --msg-box-shdw: #0000001a;
+
+    /* NAV SURFACE (LIGHT) */
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  --nav-blur: blur(10px);
+}
+
+/* =========================
+   LIGHTING LAYER
+========================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.06),
+    rgba(0, 0, 0, 0.6)
+  );
+  opacity: var(--lighting-opacity, 0.6);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    background 0.6s ease,
+    color 0.6s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* =========================
+   MOTION EASING
+========================= */
+:root {
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-luxury: cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.nav-right {
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+}
+
+nav h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s var(--ease-out-soft);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  min-height: 80vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  max-width: 700px;
+}
+
+.hero p {
+  margin-top: 1.5rem;
+  max-width: 400px;
+  color: var(--muted);
+}
+
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+/* =========================
+   PARALLAX TYPE
+========================= */
+.parallax-text {
+  position: relative;
+  will-change: transform;
+}
+
+/* ============================
+   TRANSITIOPNS FOR IMG AND BTN
+=============================== */
+img,
+button,
+.btn {
+  transition: all 0.6s var(--ease-out-soft);
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+  margin-top: 2rem;
+  width: fit-content;
+  padding: 0.8rem 2rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* =========================
+   DISABLED BUTTON
+========================= */
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* =========================
+   HONEYPOT
+========================= */
+.honeypot {
+  display: none;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 2rem;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   PORTFOLIO
+========================= */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%),
+    1s var(--ease-in-out-luxury),
+    transform 1s var(--ease-in-out-luxury);
+}
+
+.gallery img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about-text {
+  max-width: 700px;
+  color: var(--muted);
+}
+
+/* =========================
+   FORM
+========================= */
+form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input,
+textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 0.8rem 0;
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+button {
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* =========================
+   FORM STRUCTURE
+========================= */
+label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  color: var(--muted);
+}
+
+legend {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  resize: none;
+  min-height: 140px;
+}
+
+.terms {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.terms-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between checkbox and text */
+  font-size: 0.95rem;
+}
+
+/* =========================
+   VALIDATION FEEDBACK
+========================= */
+.form-error {
+  font-size: 0.75rem;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+input.error,
+textarea.error {
+  border-bottom-color: var(--accent);
+}
+
+/* =========================
+   CONFIRMATION MESSAGE
+========================= */
+/* PAGE WRAPPER (consistent spacing and layout) */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+  min-height: calc(100vh - 120px); /* account for nav/footer */
+}
+
+/* CONTENT WRAPPER */
+.content-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* CONFIRMATION MESSAGE BOX */
+.confirmation-message {
+  max-width: 700px;
+  background: var(--card-bg, --msg-box-bg);
+  padding: 3rem 2.5rem;
+  border-radius: var(--border-radius, 14px);
+  box-shadow: var(--card-shadow, 0 10px 30px var(--msg-box-shdw));
+  font-family: var(--font-serif, "Georgia", serif);
+  color: var(--text-color, --text);
+  line-height: 1.6;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+/* HEADINGS */
+.confirmation-message h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.confirmation-message h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  letter-spacing: 0.3px;
+}
+
+/* PARAGRAPHS & LISTS */
+.confirmation-message p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.confirmation-message ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-muted, --text);
+}
+
+/* LINKS */
+.confirmation-message a {
+  color: var(--accent-color, --text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-color, var(--text));
+}
+
+.confirmation-message a:hover {
+  color: var(--accent-hover, --text);
+  border-color: var(--accent-hover, var(--accent-msg-box));
+}
+
+/* BACK LINK */
+.back-link {
+  margin-top: 2rem;
+  font-weight: 500;
+}
+
+/* FADE-IN ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 1.2s var(--ease-out-soft),
+    transform 1.2s var(--ease-out-soft);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: 6rem;
+  }
+  
+  html, body {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  background: var(--bg); /* ensure it uses your theme variable */
+}
+
+body {
+  position: relative;   /* ensures pseudo-elements like ::before fill correctly */
+}
+
+body::before {
+  content: "";
+  position: fixed; /* fixed so it always covers viewport */
+  inset: 0;        /* top:0; right:0; bottom:0; left:0; */
+  pointer-events: none;
+  background: var(--bg); /* your background color or gradient */
+  z-index: -1;     /* behind all content */
+
+  opacity: var(--lighting-opacity, 0.6);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+  nav {
+    position: relative;
+    z-index: 20;
+    overflow: visible;
+  }
+
+  .nav-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* HAMBURGER */
+  /* Hamburger button default */
+  .menu-btn {
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  /* When active (menu open) */
+  .menu-btn.active {
+    transform: rotate(90deg); /* simple rotate for demonstration */
+    color: none;
+  }
+
+  /* DROPDOWN MENU */
+  .nav-right ul {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    background: var(--nav-bg);
+    backdrop-filter: var(--nav-blur);
+    -webkit-backdrop-filter: var(--nav-blur);
+
+    padding: 1.75rem 1.5rem;
+    width: 220px;
+
+    border-radius: 16px;
+    border: 1px solid var(--nav-border);
+    box-shadow: var(--nav-shadow);
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    pointer-events: none;
+
+    transition:
+      opacity 0.45s var(--ease-out-soft),
+      transform 0.45s var(--ease-out-soft);
+  }
+
+  /* Disable lingering focus/active states */
+  nav a,
+  .menu-btn,
+  #theme-toggle {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-user-select: none; /* prevent iOS highlight */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  nav a:focus,
+  nav a:active,
+  .menu-btn:focus,
+  .menu-btn:active,
+  #theme-toggle:focus,
+  #theme-toggle:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background: none !important;
+  }
+
+  .nav-right ul.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  /* LINKS */
+  .nav-right ul li a {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: color 0.25s ease;
+  }
+
+  #theme-toggle {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+    opacity: 0.75;
+  }
+}
+
+
+/* Larger screens keep normal inline nav */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none;
+  }
+
+  nav ul {
+    display: flex !important;
+    flex-direction: row;
+    gap: 2rem;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+  }
+}
