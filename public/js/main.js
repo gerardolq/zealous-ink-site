@@ -221,11 +221,18 @@ if (!menuBtn || !navList || !navRight) {
   // Toggle menu
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation(); // prevent outside click from firing
-
+    if (
+      navList.classList.contains("active") &&
+      !navRight.contains(e.target)
+    ) {
+      navList.classList.remove("active");
+      menuBtn.classList.remove("active");
+    } else {
     const isOpen = navList.classList.contains("active");
 
     navList.classList.toggle("active", !isOpen);
     menuBtn.classList.toggle("active", !isOpen);
+    }
   });
 
   // Close menu when clicking a link
