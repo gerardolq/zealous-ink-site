@@ -507,6 +507,11 @@ body {
   position: relative;   /* ensures pseudo-elements like ::before fill correctly */
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 body::before {
   content: "";
   position: fixed; /* fixed so it always covers viewport */
