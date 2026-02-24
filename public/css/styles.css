@@ -276,30 +276,6 @@ h2 {
 }
 
 /* =========================
-   LOAD MORE BUTTON
-========================= */
-
-.load-more-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-}
-
-#loadMoreBtn {
-  padding: 0.8rem 2rem;
-  border: 1px solid var(--accent);
-  background: none;
-  color: var(--accent);
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-#loadMoreBtn:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-/* =========================
    ABOUT
 ========================= */
 .about-text {

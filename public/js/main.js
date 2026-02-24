@@ -11,61 +11,25 @@ window.addEventListener("load", () => {
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 
-  const gallery = document.getElementById("gallery");
-  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const faders = document.querySelectorAll(".fade-in");
 
-  const images = [
-    "images/portfolio/InnerBicep_kidBuu.jpg",
-    "images/portfolio/InnerForearm_Itachi.jpg",
-    "images/portfolio/OuterForearm_Resilience.jpg",
-    "images/portfolio/Shin_FullColor_Sylveon.jpg",
-    "images/portfolio/InnerForearm_Buck.jpg",
-    "images/portfolio/OuterCalf_Nezuko.jpg",
-    "images/portfolio/InnerForearm_nationalPark.jpg",
-    "images/portfolio/InnerForearm_FineLine_Leopard.jpg",
-    "images/portfolio/OuterForearm_Ghostface.jpg",
-    "images/portfolio/OuterCalf_Nezuko.jpg",
-    "images/portfolio/OuterCalf_BlueSpirit.jpg",
-    "images/portfolio/OuterForearm_SpiderVenom.jpg",
-    "images/portfolio/InnerCalf_Sukuna.jpg",
-    "images/portfolio/Shin_FullColor_Sylveon.jpg"
-  ];
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -100px 0px"
+  };
 
-  const batchSize = 6;
-  let currentIndex = 0;
-
-  function loadImages() {
-    const nextBatch = images.slice(currentIndex, currentIndex + batchSize);
-
-    nextBatch.forEach(src => {
-      const img = document.createElement("img");
-      img.src = src;
-      img.loading = "lazy";
-      img.style.opacity = "0";
-      img.style.transform = "translateY(30px)";
-
-      gallery.appendChild(img);
-
-      // Trigger animation
-      requestAnimationFrame(() => {
-        img.style.transition = "opacity 0.8s ease, transform 0.8s ease";
-        img.style.opacity = "1";
-        img.style.transform = "translateY(0)";
-      });
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      }
     });
+  }, observerOptions);
 
-    currentIndex += batchSize;
-
-    if (currentIndex >= images.length) {
-      loadMoreBtn.style.display = "none";
-    }
-  }
-
-  loadMoreBtn.addEventListener("click", loadImages);
-
-  // Initial load
-  loadImages();
+  faders.forEach(el => observer.observe(el));
 });
+
 
 // =========================
 // PAGE TRANSITIONS
