@@ -534,6 +534,7 @@ textarea.error {
   /* Hamburger button default */
   .menu-btn {
     font-size: 1.6rem;
+    max-height: none !important;
     background: none;
     border: none;
     color: var(--text);
