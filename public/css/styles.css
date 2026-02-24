@@ -559,6 +559,9 @@ textarea.error {
     flex-direction: column;
     gap: 1.25rem;
 
+    max-height: 90vh; /* ensures it can expand fully on mobile */
+    overflow-y: auto;  /* scroll if too tall */
+
     background: var(--nav-bg);
     backdrop-filter: var(--nav-blur);
     -webkit-backdrop-filter: var(--nav-blur);
