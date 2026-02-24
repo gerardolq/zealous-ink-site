@@ -535,6 +535,7 @@ textarea.error {
   .menu-btn {
     font-size: 1.6rem;
     max-height: none !important;
+    overflow-y: auto;
     background: none;
     border: none;
     color: var(--text);
