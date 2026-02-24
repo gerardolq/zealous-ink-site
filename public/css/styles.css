@@ -471,7 +471,7 @@ textarea.error {
 
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(10);
+  transform: translateY(40);
 }
 
 /* =========================
