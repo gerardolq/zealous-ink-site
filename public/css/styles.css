@@ -264,14 +264,14 @@ h2 {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  filter: grayscale(100%);
+  filter: grayscale(0%);
   transition:
     filter 1s var(--ease-in-out-luxury),
     transform 1s var(--ease-in-out-luxury);
 }
 
 .gallery img:hover {
-  filter: grayscale(0%);
+  filter: grayscale(100%);
   transform: scale(1.02);
 }
 
@@ -462,15 +462,16 @@ textarea.error {
 ========================= */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
   transition:
-    opacity 1.2s var(--ease-out-soft),
-    transform 1.2s var(--ease-out-soft);
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(50);
 }
 
 /* =========================
@@ -499,6 +500,7 @@ textarea.error {
   .fade-in {
     opacity: 1;
     transform: none;
+    transition: none;
   }
 
   .gallery img {
