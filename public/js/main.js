@@ -8,18 +8,35 @@ window.addEventListener("load", () => {
 // =========================
 // SCROLL FADE-INS
 // =========================
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
+// Page fade in
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
+});
 
-document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+// Safer fade-in observer
+const faders = document.querySelectorAll(".fade-in");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    }
+  );
+
+  faders.forEach(el => observer.observe(el));
+} else {
+  // Fallback for older browsers
+  faders.forEach(el => el.classList.add("visible"));
+}
 
 // =========================
 // PAGE TRANSITIONS
