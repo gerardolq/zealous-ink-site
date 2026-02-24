@@ -602,6 +602,32 @@ textarea.error {
   }
 }
 
+/* =========================
+   PAYMENTS
+========================= */
+.payment-card {
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--nav-border);
+  border-radius: 16px;
+  background: var(--nav-bg);
+  backdrop-filter: var(--nav-blur);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-card p {
+  margin-bottom: 1.5rem;
+}
+
+.payment-card .btn {
+  margin-top: auto;  /* pushes button to bottom */
+}
+
+.payment-card h3 {
+  margin-bottom: 1rem;
+}
+
 
 /* Larger screens keep normal inline nav */
 @media (min-width: 769px) {
