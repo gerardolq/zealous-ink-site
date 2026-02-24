@@ -534,8 +534,6 @@ textarea.error {
   /* Hamburger button default */
   .menu-btn {
     font-size: 1.6rem;
-    max-height: none !important;
-    overflow-y: auto;
     background: none;
     border: none;
     color: var(--text);
@@ -545,6 +543,8 @@ textarea.error {
 
   /* When active (menu open) */
   .menu-btn.active {
+    max-height: none !important;
+    overflow-y: auto;
     transform: rotate(90deg); /* simple rotate for demonstration */
     color: var(--accent);
   }
@@ -559,7 +559,7 @@ textarea.error {
     flex-direction: column;
     gap: 1.25rem;
 
-    max-height: 90vh; /* ensures it can expand fully on mobile */
+    max-height: none; /* ensures it can expand fully on mobile */
     overflow-y: auto;  /* scroll if too tall */
 
     background: var(--nav-bg);
