@@ -17,7 +17,7 @@ exports.handler = async function (event) {
     // ------------------------
     // Environment Toggle for Test Emails
     // ------------------------
-    const isTestEmail = process.env.SEND_TEST_BOOKING === "true";
+    const isTestEmail = process.env.SEND_TEST_BOOKING === "False";
 
     // ------------------------
     // Extract Fields
