@@ -155,6 +155,20 @@ document.addEventListener("DOMContentLoaded", () => {
       valid = false;
     }
 
+    // Phone
+    const phoneValue = phone.value.trim();
+    const digitsOnly = phoneValue.replace(/\D/g, "");
+
+    if (digitsOnly.length > 0 && digitsOnly.length < 10) {
+      showError(phone, "Please enter a valid 10-digit phone number.");
+      valid = false;
+    }
+
+    if (!/^[0-9+\-\s()]*$/.test(phoneValue)) {
+      showError(phone, "Phone number can only contain numbers.");
+      valid = false;
+    }
+
     // Tattoo Idea
     if (idea.value.trim().length < 15) {
       showError(idea, "Please provide more detail about your tattoo idea (15+ characters).");
@@ -181,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Phone/Text required if "Text" selected
     if ([...contactMethods].some(m => m.value === "phone") && phone.value.trim().length < 7) {
-      showError(phone, "Please provide a text number.");
+      showError(phone, "Please provide a phone number.");
       valid = false;
     }
 
